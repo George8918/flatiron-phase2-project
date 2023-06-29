@@ -1,5 +1,7 @@
 import React from 'react'
 import {BroswerRouter as Router, Route,Switch,Link} from 'react-router-dom';
+import Home from './components/Home';
+import 
 import './App.css';
 
 function App() {
