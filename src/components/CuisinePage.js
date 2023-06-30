@@ -23,7 +23,14 @@ const CuisinePage = () => {
                         title: hit.tags,
                     }
                 });
+                setImagesData(formattedImages)
+                setFilteredImages(formattedImages);
+            } else {
+                console.log('No result 404');
+
             }
+        })
+    }
 
     const displayImages = (images) => {
         return images.map((image) => (
@@ -38,7 +45,27 @@ const CuisinePage = () => {
         setFilteredImages(filtered)
     }
 
-    
+    return (
+        <div>
+            <h1>Cuisine Page</h1>
+        <div className="tab">
+            <button className="tablinks" onClick={() => setCurrentTab('Italian')}>Italian</button>
+            <button className="tablinks" onClick={() => setCurrentTab('Turkish')}>Turkish</button>
+            <button className="tablinks" onClick={() => setCurrentTab('Chinese')}>Chinese</button>
+            <button className="tablinks" onClick={() => setCurrentTab('Canadian')}>Canadian</button>
+            <button className="tablinks" onClick={() => setCurrentTab('American')}>American</button>
+            <button className="tablinks" onClick={() => setCurrentTab('Indian')}>Indian</button>
+            <button className="tablinks" onClick={() => setCurrentTab('Ukrainian')}>Ukrainian</button>
+            <button className="tablinks" onClick={() => setCurrentTab('English')}>English</button>
+            <button className="tablinks" onClick={() => setCurrentTab('Austrian')}>Austrian</button>
+            <button className="tablinks" onClick={() => setCurrentTab('Japanese')}>Japanese</button>
+            <button className="tablinks" onClick={() => setCurrentTab('Korean')}>Korean</button>
+            <button className="tablinks" onClick={() => setCurrentTab('Australian')}>Australian</button>
+            <button className="tablinks" onClick={() => setCurrentTab('Russian')}>Russian</button>
+
+        </div>
+        </div>
+
         })
     }
 } 
