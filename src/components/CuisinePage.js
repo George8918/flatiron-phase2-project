@@ -64,6 +64,19 @@ const CuisinePage = () => {
             <button className="tablinks" onClick={() => setCurrentTab('Russian')}>Russian</button>
 
         </div>
+    
+       <div className="search-container">
+        <input
+           type="text"
+           id="search-input"
+           placeholder="Search..."
+           onChange={(e) => filterImages(e.target.value)}
+           />
+        
+        <button
+          
+       </div>
+
         </div>
 
         })
