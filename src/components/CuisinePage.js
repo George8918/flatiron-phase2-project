@@ -9,9 +9,9 @@ const CuisinePage = () => {
         fetchImageData(currentTab);
     }, [currentTab]);
 
-    const fetchImageData = (cuisine) => {
+    const fetchImageData = (country) => {
         fetch(
-            `https://pixabay.com/api/?key=${36404956-dbea71482a1b61f69c95cb03c}&q=${cuisine}&image_type=photo&per_page=100`
+        `https://pixabay.com/api/?key=36404956-dbea71482a1b61f69c95cb03c&q=${country}+ vehicle&image_type=photo&per_page=100`
         )
         .then((response)=> response.json())
         .then((data) => {
@@ -19,7 +19,7 @@ const CuisinePage = () => {
                 const formattedImages =data.hits.map((hit)=> {
                     return {
                         id: hit.id,
-                        imageUrl: hit.webformURL,
+                        imageUrl: hit.webformatURL,
                         title: hit.tags,
                     }
                 });
