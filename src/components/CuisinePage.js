@@ -25,6 +25,19 @@ const CuisinePage = () => {
                 });
             }
 
+    const displayImages = (images) => {
+        return images.map((image) => (
+            <img key= {image.id} src= {image.imageUrl} alt={image.title}/>
+        ))  
+    }
+
+    const filterImages = (query) => {
+        const filtered = imagesData.filter((image) => 
+        image.title.toLowerCase().includes(query.toLowerCase())
+        );
+        setFilteredImages(filtered)
+    }
+
     
         })
     }
