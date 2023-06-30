@@ -11,7 +11,7 @@ const CuisinePage = () => {
 
     const fetchImageData = (cuisine) => {
         fetch(
-            `https://pixabay.com/api/?key=${process.env.REACT_APP_API_KEY}&q=${cuisine}&image_type=photo&per_page=100`
+            `https://pixabay.com/api/?key=${36404956-dbea71482a1b61f69c95cb03c}&q=${cuisine}&image_type=photo&per_page=100`
         )
         .then((response)=> response.json())
         .then((data) => {
@@ -74,11 +74,17 @@ const CuisinePage = () => {
            />
         
         <button
-          
+          id = "clear-btn"
+          onClick={() => setFilteredImages(imagesData)}
+          >
+          Clear
+          </button>
        </div>
+       <div className="image-container">{displayImages(filteredImages)}</div>
 
         </div>
 
-        })
+        )
     }
-} 
+    
+    export default CuisinePage;
