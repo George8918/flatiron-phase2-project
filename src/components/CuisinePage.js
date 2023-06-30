@@ -18,10 +18,14 @@ const CuisinePage = () => {
             if (data.hits) {
                 const formattedImages =data.hits.map((hit)=> {
                     return {
-                        
+                        id: hit.id,
+                        imageUrl: hit.webformURL,
+                        title: hit.tags,
                     }
-                })
+                });
             }
+
+    
         })
     }
 } 
