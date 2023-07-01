@@ -1,4 +1,6 @@
 import React, {useState, useEffect} from 'react';
+import CuisineItem from './CuisineItem';
+
 
 const CuisinePage = () => {
     const [currentTab, setCurrentTab] = useState ('');
@@ -21,6 +23,7 @@ const CuisinePage = () => {
                         id: hit.id,
                         imageUrl: hit.webformatURL,
                         title: hit.tags,
+                        description: '',
                     }
                 });
                 setImagesData(formattedImages)
@@ -34,7 +37,7 @@ const CuisinePage = () => {
 
     const displayImages = (images) => {
         return images.map((image) => (
-            <img key= {image.id} src= {image.imageUrl} alt={image.title}/>
+            <img CuisineItem key= {image.id} src= {image.imageUrl} alt={image.title} description={image.description}/>
         ))  
     }
 

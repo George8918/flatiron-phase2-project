@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route,Routes, Link } from 'react-router-dom';
 import Home from './components/Home';
 import CuisinePage from './components/CuisinePage';
 import './App.css';
+import './styles.css';
 
 function App() {
   return (
