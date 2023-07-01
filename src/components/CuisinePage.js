@@ -37,7 +37,7 @@ const CuisinePage = () => {
 
     const displayImages = (images) => {
         return images.map((image) => (
-            <img CuisineItem key= {image.id} src= {image.imageUrl} alt={image.title} description={image.description}/>
+            < CuisineItem key= {image.id} imageUrl= {image.imageUrl} title={image.title} description={image.description}/>
         ))  
     }
 
