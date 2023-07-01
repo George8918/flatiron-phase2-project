@@ -38,3 +38,51 @@
     transition: background-color 0.3s ease;
   }
   
+  .tab button:hover {
+    background-color: #ccc;
+  }
+  
+  .tab button.active {
+    background-color: #aaa;
+    color: #fff;
+  }
+
+  .search-container {
+    margin-bottom: 20px;
+  }
+  
+  .search-container input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 200px;
+    font-size: 16px;
+  }
+
+  .search-container #clear-btn {
+    border: none;
+    outline: none;
+    background-color: #aaa;
+    color: #fff;
+    padding: 10px 20px;
+    margin-left: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .search-container #clear-btn:hover {
+    background-color: #777;
+  }
+
+  .image-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+  }
+  
+  .image-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+  }
