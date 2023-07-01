@@ -11,7 +11,7 @@ const CuisinePage = () => {
 
     const fetchImageData = (country) => {
         fetch(
-        `https://pixabay.com/api/?key=36404956-dbea71482a1b61f69c95cb03c&q=${country}+ vehicle&image_type=photo&per_page=100`
+        `https://pixabay.com/api/?key=36404956-dbea71482a1b61f69c95cb03c&q=${country}+ food +dinner&image_type=photo&per_page=100`
         )
         .then((response)=> response.json())
         .then((data) => {
