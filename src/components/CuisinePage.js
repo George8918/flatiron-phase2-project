@@ -13,19 +13,13 @@ const CuisinePage = () => {
 
     const fetchImageData = (country) => {
         fetch(
-        `https://pixabay.com/api/?key=36404956-dbea71482a1b61f69c95cb03c&q=${country}+ food +dinner&image_type=photo&per_page=100`
+            `http://localhost:3001/cuisines?name=${encodeURIComponent(country.toLowerCase())}`
         )
         .then((response)=> response.json())
         .then((data) => {
-            if (data.hits) {
+            if (data) {
                 const formattedImages =data.hits.map((hit)=> {
                     return {
-                        id: hit.id,
-                        imageUrl: hit.webformatURL,
-                        title: hit.tags,
-                        description: '',
-                    }
-                });
                 setImagesData(formattedImages)
                 setFilteredImages(formattedImages);
             } else {
@@ -37,7 +31,11 @@ const CuisinePage = () => {
 
     const displayImages = (images) => {
         return images.map((image) => (
-            < CuisineItem key= {image.id} imageUrl= {image.imageUrl} title={image.title} description={image.description}/>
+            < CuisineItem 
+            key= {image.id} 
+            imageUrl= {image.imageUrl} 
+            title={image.title} 
+            description={image.description}/>
         ))  
     }
 
@@ -47,6 +45,8 @@ const CuisinePage = () => {
         );
         setFilteredImages(filtered)
     }
+
+    
 
     return (
         <div>
