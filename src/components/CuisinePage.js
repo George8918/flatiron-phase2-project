@@ -62,6 +62,11 @@ const CuisinePage = () => {
           },
           body: JSON.stringify(newCuisine),
         })
+         .then((response) => response.json())
+         .then((data) => {
+            setImagesData([...imagesData, data]);
+            setFilteredImages([...filteredImages, data]);
+         })
     }
 
     return (
