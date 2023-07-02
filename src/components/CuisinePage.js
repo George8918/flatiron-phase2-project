@@ -46,7 +46,23 @@ const CuisinePage = () => {
         setFilteredImages(filtered)
     }
 
-    
+    const handleSubmit = (e) => {
+        e.preventDefault()
+
+        const formData = new FormData(e.target)
+        const newCuisine = {
+            name: formData.get('name'),
+            description: formData.get('description'),
+        }
+
+        fetch('http://localhost:3001/cuisines,' {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(newCuisine),
+        })
+    }
 
     return (
         <div>
