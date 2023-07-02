@@ -13,19 +13,24 @@ const CuisinePage = () => {
 
     const fetchImageData = (country) => {
         fetch(
-            `http://localhost:3001/cuisines?name=${encodeURIComponent(country.toLowerCase())}`
+            `http://localhost:3001/cuisines?country=${country}`
         )
         .then((response)=> response.json())
         .then((data) => {
-            if (data) {
-                setImagesData(data)
-                setFilteredImages(data);
-            } else {
-                console.log('No result 404');
-
-            }
-        })
-    }
+            if (data.length > 0) {
+                const formattedImages = data.map((item) => ({
+                  id: item.id,
+                  imageUrl: item.imageUrl,
+                  title: item.title,
+                  description: item.description,
+                }));
+                setImagesData(formattedImages);
+                setFilteredImages(formattedImages);
+              } else {
+                console.log('No result');
+              }
+            });
+        };
 
     const displayImages = (images) => {
         if (!Array.isArray(images)) {

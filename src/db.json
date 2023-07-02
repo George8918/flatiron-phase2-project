@@ -1,18 +1,64 @@
 {
-    "cuisines": [
-      {
-        "id": 1,
-        "name": "Italian",
-        "imageUrl": "https://example.com/italian.jpg",
-        "title": "Italian Cuisine",
-        "description": "Delicious Italian dishes."
-      },
-      {
-        "id": 2,
-        "name": "Turkish",
-        "imageUrl": "https://example.com/turkish.jpg",
-        "title": "Turkish Cuisine",
-        "description": "Authentic Turkish dishes."
-      }
-    ]
-  }
+  "cuisines": [
+    {
+      "id": 1932466,
+      "imageUrl": "https://pixabay.com/get/g7abf09fd61fa7aed996f052e384be33b18d34bcb0ba765523405bcf9c6da4c2add6f6355a21ad65246ae537e7338b89b71816ab223250d53fa8e4aae7cfa7360_640.jpg",
+      "title": "spaghetti, tomatoes, basil",
+      "description": ""
+    },
+    {
+      "id": 366875,
+      "imageUrl": "https://pixabay.com/get/g9d95dfbbd3e746e7cac8087ebc609271ecb23be1931c8e294c62df1667dc872fb0c81644d25a1c67d24d7a65eefb75eb_640.jpg",
+      "title": "food, dishes, meals",
+      "description": ""
+    },
+    {
+      "id": 518032,
+      "imageUrl": "https://pixabay.com/get/gecd4acd5517c1250bef9a6745dce6f92d06bc06fbac8ff57ad6a4d7272f873f36c77d813a736653cf3dd000d3c0c9044_640.jpg",
+      "title": "salmon, fish, seafood",
+      "description": ""
+    },
+    {
+      "id": 2378758,
+      "imageUrl": "https://pixabay.com/get/g4b3a530ee1ea9287616f6ce4b248c7befd9216f142099ca69190fb5ac408a027777578cf20f4ca45e300bf578a0f14a3a3cfe06d58eafa20e171ff4c26803965_640.jpg",
+      "title": "mediterranean cuisine, eat, food",
+      "description": ""
+    },
+    {
+      "id": 370114,
+      "imageUrl": "https://pixabay.com/get/g15d57ed8b633495526a7c17d1b553ba4670bd21e36937565bfb90c80666df332ad38cf2a8b59c168f2c77964ad967b68_640.jpg",
+      "title": "spices, chilies, paprika",
+      "description": ""
+    },
+    {
+      "id": 2931846,
+      "imageUrl": "https://pixabay.com/get/g08fd1cac2be0c5355bc3e2b5a394a20efe9896ebd934143ee08120da9f859754b47f7f801a9491880fac6c8014287844eb50b061da3c56b4b6277f16b78072b2_640.jpg",
+      "title": "spaghetti, pasta, noodles",
+      "description": ""
+    },
+    {
+      "id": 3010062,
+      "imageUrl": "https://pixabay.com/get/g6db3bb54440af09ddef98dc43db53995a97e28a53a426d01a439a6a00f3d7a2d943403c5b87ae9eb013fbfbbf44d05faa6816c983722d5bab7aaa3feff9e56f4_640.jpg",
+      "title": "pizza, plate, food",
+      "description": ""
+    },
+    {
+      "id": 2009590,
+      "imageUrl": "https://pixabay.com/get/g9d704e6b39ef3a9005b47e48f05199c6597c8f6644a6812ccc2c8b37e6ca7a10dbb1316371b5ad1598b6ebd495d1fbd24dff44c0b4d7de31e923f5595143afa3_640.jpg",
+      "title": "platter, food, starters",
+      "description": ""
+    },
+    {
+      "id": 1417239,
+      "imageUrl": "https://pixabay.com/get/g9a886f11cfc801071f796b07fbe9173a269c15240a6858cad44c7c0abf00b474b77ca26f10950812333056c383347126dbe67aee4579fd18245b3f71db319020_640.png",
+      "title": "chef, character, cook",
+      "description": ""
+    },
+    {
+      "id": 1854245,
+      "imageUrl": "https://pixabay.com/get/g465173df18c0ec876bba0474dcae5b316e699d206e0611f0af29783f410ee1ba2eb51d683d06d178a12d5af979a3e7abedf004602d15ba322f6437463ca2a688_640.jpg",
+      "title": "pasta, pesto, farfalle",
+      "description": ""
+    }
+  ]
+}
