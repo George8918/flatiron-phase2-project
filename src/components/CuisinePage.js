@@ -18,10 +18,8 @@ const CuisinePage = () => {
         .then((response)=> response.json())
         .then((data) => {
             if (data) {
-                const formattedImages =data.hits.map((hit)=> {
-                    return {
-                setImagesData(formattedImages)
-                setFilteredImages(formattedImages);
+                setImagesData(data)
+                setFilteredImages(data);
             } else {
                 console.log('No result 404');
 
@@ -30,6 +28,10 @@ const CuisinePage = () => {
     }
 
     const displayImages = (images) => {
+        if (!Array.isArray(images)) {
+            return null; // or display a loading state
+          }
+
         return images.map((image) => (
             < CuisineItem 
             key= {image.id} 
@@ -55,7 +57,7 @@ const CuisinePage = () => {
             description: formData.get('description'),
         }
 
-        fetch('http://localhost:3001/cuisines,' {
+        fetch('http://localhost:3001/cuisines', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -67,6 +69,8 @@ const CuisinePage = () => {
             setImagesData([...imagesData, data]);
             setFilteredImages([...filteredImages, data]);
          })
+         
+         e.target.reset();
     }
 
     return (
@@ -90,19 +94,29 @@ const CuisinePage = () => {
         </div>
     
        <div className="search-container">
+        <form onSubmit={handleSubmit}>
         <input
            type="text"
            id="search-input"
-           placeholder="Search..."
+           name="name"
+           placeholder="Name"
            onChange={(e) => filterImages(e.target.value)}
            />
-        
+        <input 
+             type="text"
+             id="description-input"
+             name="description"
+             placeholder="Description"
+             />
+         <button type="submit">Add</button>
+
         <button
           id = "clear-btn"
           onClick={() => setFilteredImages(imagesData)}
           >
           Clear
           </button>
+          </form>
        </div>
        <div className="image-container">{displayImages(filteredImages)}</div>
 

@@ -1,0 +1,18 @@
+{
+    "cuisines": [
+      {
+        "id": 1,
+        "name": "Italian",
+        "imageUrl": "https://example.com/italian.jpg",
+        "title": "Italian Cuisine",
+        "description": "Delicious Italian dishes."
+      },
+      {
+        "id": 2,
+        "name": "Turkish",
+        "imageUrl": "https://example.com/turkish.jpg",
+        "title": "Turkish Cuisine",
+        "description": "Authentic Turkish dishes."
+      }
+    ]
+  }
