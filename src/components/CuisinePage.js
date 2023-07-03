@@ -13,16 +13,16 @@ const CuisinePage = () => {
 
     const fetchImageData = (country) => {
         fetch(
-            `http://localhost:3001/cuisines?country=${country}`
+            `https://pixabay.com/api/?key=36404956-dbea71482a1b61f69c95cb03c&q=${country}+food&image_type=photo&per_page=20`
         )
         .then((response)=> response.json())
         .then((data) => {
-            if (data.length > 0) {
-                const formattedImages = data.map((item) => ({
-                  id: item.id,
-                  imageUrl: item.imageUrl,
-                  title: item.title,
-                  description: item.description,
+            if (data.hits) {
+                const formattedImages = data.hits.map((hit) => ({
+                  id: hit.id,
+                  imageURL: hit.webformatURL,
+                  title: hit.tags,
+                  description: hit.description,
                 }));
                 setImagesData(formattedImages);
                 setFilteredImages(formattedImages);
@@ -33,14 +33,11 @@ const CuisinePage = () => {
         };
 
     const displayImages = (images) => {
-        if (!Array.isArray(images)) {
-            return null; // or display a loading state
-          }
 
         return images.map((image) => (
             < CuisineItem 
             key= {image.id} 
-            imageUrl= {image.imageUrl} 
+            imageURL= {image.imageURL} 
             title={image.title} 
             description={image.description}/>
         ))  
@@ -53,30 +50,37 @@ const CuisinePage = () => {
         setFilteredImages(filtered)
     }
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
+    
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const newImage = {
+      id: Date.now(),
+      imageURL: formData.get('imageURL'),
+      title: formData.get('title'),
+      description: formData.get('description'),
+    };
 
-        const formData = new FormData(e.target)
-        const newCuisine = {
-            name: formData.get('name'),
-            description: formData.get('description'),
-        }
+    fetch('http://localhost:3000/images', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newImage),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setImagesData([...imagesData, data]);
+        setFilteredImages([...filteredImages, data]);
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
 
-        fetch('http://localhost:3001/cuisines', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(newCuisine),
-        })
-         .then((response) => response.json())
-         .then((data) => {
-            setImagesData([...imagesData, data]);
-            setFilteredImages([...filteredImages, data]);
-         })
-         
-         e.target.reset();
-    }
+    // Reset the form
+    e.target.reset();
+  };
+
 
     return (
         <div>
@@ -99,11 +103,9 @@ const CuisinePage = () => {
         </div>
     
        <div className="search-container">
-        <form onSubmit={handleSubmit}>
         <input
            type="text"
            id="search-input"
-           name="name"
            placeholder="Name"
            onChange={(e) => filterImages(e.target.value)}
            />
@@ -113,7 +115,6 @@ const CuisinePage = () => {
              name="description"
              placeholder="Description"
              />
-         <button type="submit">Add</button>
 
         <button
           id = "clear-btn"
@@ -121,7 +122,6 @@ const CuisinePage = () => {
           >
           Clear
           </button>
-          </form>
        </div>
        <div className="image-container">{displayImages(filteredImages)}</div>
 
