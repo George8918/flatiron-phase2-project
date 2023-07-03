@@ -12,15 +12,15 @@ const CuisinePage = () => {
     }, [currentTab]);
 
     const fetchImageData = (country) => {
-        fetch(
-            `https://pixabay.com/api/?key=36404956-dbea71482a1b61f69c95cb03c&q=${country}+food&image_type=photo&per_page=20`
+
+  fetch(`https://pixabay.com/api/?key=36404956-dbea71482a1b61f69c95cb03c&q=${country}+food+dinner&image_type=photo&per_page=20`
         )
         .then((response)=> response.json())
         .then((data) => {
             if (data.hits) {
                 const formattedImages = data.hits.map((hit) => ({
                   id: hit.id,
-                  imageURL: hit.webformatURL,
+                  imageUrl: hit.webformatUrl,
                   title: hit.tags,
                   description: hit.description,
                 }));
@@ -37,7 +37,7 @@ const CuisinePage = () => {
         return images.map((image) => (
             < CuisineItem 
             key= {image.id} 
-            imageURL= {image.imageURL} 
+            imageUrl= {image.imageUrl} 
             title={image.title} 
             description={image.description}/>
         ))  
@@ -77,7 +77,7 @@ const CuisinePage = () => {
         console.error('Error:', error);
       });
 
-    // Reset the form
+   
     e.target.reset();
   };
 
@@ -102,32 +102,39 @@ const CuisinePage = () => {
 
         </div>
     
-       <div className="search-container">
-        <input
-           type="text"
-           id="search-input"
-           placeholder="Name"
-           onChange={(e) => filterImages(e.target.value)}
-           />
-        <input 
-             type="text"
-             id="description-input"
-             name="description"
-             placeholder="Description"
-             />
+        <div className="search-container">
+  <input
+    type="text"
+    id="search-input"
+    placeholder="Name"
+    onChange={(e) => filterImages(e.target.value)}
+  />
 
-        <button
-          id = "clear-btn"
-          onClick={() => setFilteredImages(imagesData)}
-          >
-          Clear
-          </button>
-       </div>
-       <div className="image-container">{displayImages(filteredImages)}</div>
+  <form className="image-form" onSubmit={handleSubmit}>
+    <input
+      type="text"
+      id="imageURL-input"
+      name="imageURL"
+      placeholder="Image URL"
+      required
+    />
+    <input
+      type="text"
+      id="description-input"
+      name="description"
+      placeholder="Description"
+    />
 
-        </div>
+    <button id="clear-btn" type="button" onClick={() => setFilteredImages(imagesData)}>
+      Clear
+    </button>
 
-        )
-    }
-    
+    <button type="submit">Add Image</button>
+  </form>
+</div>
+<div className="image-container">{displayImages(filteredImages)}</div>
+
+</div>
+    )
+}
     export default CuisinePage;
