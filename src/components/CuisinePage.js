@@ -87,12 +87,11 @@ const CuisinePage = () => {
             <h1>Cuisine Page</h1>
         <div className="tab">
             <button className="tablinks" onClick={() => setCurrentTab('Italian')}>Italian</button>
-            <button className="tablinks" onClick={() => setCurrentTab('Turkish')}>Turkish</button>
             <button className="tablinks" onClick={() => setCurrentTab('Chinese')}>Chinese</button>
             <button className="tablinks" onClick={() => setCurrentTab('Canadian')}>Canadian</button>
             <button className="tablinks" onClick={() => setCurrentTab('American')}>American</button>
-            <button className="tablinks" onClick={() => setCurrentTab('Indian')}>Indian</button>
             <button className="tablinks" onClick={() => setCurrentTab('Ukrainian')}>Ukrainian</button>
+            <button className="tablinks" onClick={() => setCurrentTab('Iran')}>Iran</button>
             <button className="tablinks" onClick={() => setCurrentTab('English')}>English</button>
             <button className="tablinks" onClick={() => setCurrentTab('Austrian')}>Austrian</button>
             <button className="tablinks" onClick={() => setCurrentTab('Japanese')}>Japanese</button>
