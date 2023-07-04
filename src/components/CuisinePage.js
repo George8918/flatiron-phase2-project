@@ -20,7 +20,7 @@ const CuisinePage = () => {
             if (data.hits) {
                 const formattedImages = data.hits.map((hit) => ({
                   id: hit.id,
-                  imageUrl: hit.webformatUrl,
+                  imageUrl: hit.webformatURL,
                   title: hit.tags,
                   description: hit.description,
                 }));
