@@ -13,15 +13,15 @@ const CuisinePage = () => {
 
     const fetchImageData = (country) => {
 
-  fetch(`https://json-server-project-phase2.onrender.com/cuisines`)
+  fetch(`https://json-server-project-phase2.onrender.com/cuisines?country=${country}`)
         .then((response)=> response.json())
         .then((data) => {
-            if (Array.isArray(data)) {
-                const formattedImages = data.map((item) => ({
-                  id: item.id,
-                  imageUrl: item.webformatURL,
-                  title: item.tags,
-                  description: item.description,
+            if (data.cuisines) {
+                const formattedImages = data.hits.map((cuisine) => ({
+                  id: cuisine.id,
+                  imageUrl: cuisine.imageUrl,
+                  title: cuisine.title,
+                  description: cuisine.description,
                 }));
                 setImagesData(formattedImages);
                 setFilteredImages(formattedImages);
@@ -32,9 +32,7 @@ const CuisinePage = () => {
         };
 
     const displayImages = (images) => {
-      if (!Array.isArray(images)) {
-        return null; 
-      }
+    
         return images.map((image) => (
             < CuisineItem 
             key= {image.id} 
@@ -97,7 +95,7 @@ const CuisinePage = () => {
             <button className="tablinks" onClick={() => setCurrentTab('Austrian')}>Austrian</button>
             <button className="tablinks" onClick={() => setCurrentTab('Japanese')}>Japanese</button>
             <button className="tablinks" onClick={() => setCurrentTab('Korean')}>Korean</button>
-            <button className="tablinks" onClick={() => setCurrentTab('Australian')}>Australian</button>
+            <button className="tablinks" onClick={() => setCurrentTab('Soup')}>Soup</button>
             <button className="tablinks" onClick={() => setCurrentTab('Russian')}>Russian</button>
 
         </div>
