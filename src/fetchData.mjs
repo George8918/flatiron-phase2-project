@@ -2,7 +2,7 @@ import fs from 'fs'
 import fetch from 'node-fetch';
 
 
-fetch('https://pixabay.com/api/?key=36404956-dbea71482a1b61f69c95cb03c&q=cuisines+dinner&per_page=10')
+fetch('https://pixabay.com/api/?key=36404956-dbea71482a1b61f69c95cb03c&q=cuisines+dinner&per_page=20')
   .then((response) => response.json())
   .then((data) => {
     if (data.hits) { 

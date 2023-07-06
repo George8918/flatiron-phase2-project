@@ -13,16 +13,15 @@ const CuisinePage = () => {
 
     const fetchImageData = (country) => {
 
-  fetch(`https://pixabay.com/api/?key=36404956-dbea71482a1b61f69c95cb03c&q=${country}+food+dinner&image_type=photo&per_page=20`
-        )
+  fetch(`https://json-server-project-phase2.onrender.com/cuisines`)
         .then((response)=> response.json())
         .then((data) => {
-            if (data.hits) {
-                const formattedImages = data.hits.map((hit) => ({
-                  id: hit.id,
-                  imageUrl: hit.webformatURL,
-                  title: hit.tags,
-                  description: hit.description,
+            if (Array.isArray(data)) {
+                const formattedImages = data.map((item) => ({
+                  id: item.id,
+                  imageUrl: item.webformatURL,
+                  title: item.tags,
+                  description: item.description,
                 }));
                 setImagesData(formattedImages);
                 setFilteredImages(formattedImages);
@@ -33,7 +32,9 @@ const CuisinePage = () => {
         };
 
     const displayImages = (images) => {
-
+      if (!Array.isArray(images)) {
+        return null; 
+      }
         return images.map((image) => (
             < CuisineItem 
             key= {image.id} 
@@ -61,7 +62,7 @@ const CuisinePage = () => {
       description: formData.get('description'),
     };
 
-    fetch('http://localhost:3000/images', {
+    fetch('https://json-server-project-phase2.onrender.com/cuisines', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
