@@ -13,13 +13,13 @@ const CuisinePage = () => {
 
     const fetchImageData = (country) => {
 
-  fetch(`https://json-server-project-phase2.onrender.com/cuisines?country=${country}`)
+  fetch(`https://pixabay.com/api/?key=36404956-dbea71482a1b61f69c95cb03c&q=${country}+food+dinner&image_type=photo&per_page=20`)
         .then((response)=> response.json())
         .then((data) => {
             if (data.cuisines) {
-                const formattedImages = data.hits.map((cuisine) => ({
+                const formattedImages = data.cuisines.map((cuisine) => ({
                   id: cuisine.id,
-                  imageUrl: cuisine.imageUrl,
+                  imageUrl: cuisine.imageURL,
                   title: cuisine.title,
                   description: cuisine.description,
                 }));
@@ -95,7 +95,6 @@ const CuisinePage = () => {
             <button className="tablinks" onClick={() => setCurrentTab('Austrian')}>Austrian</button>
             <button className="tablinks" onClick={() => setCurrentTab('Japanese')}>Japanese</button>
             <button className="tablinks" onClick={() => setCurrentTab('Korean')}>Korean</button>
-            <button className="tablinks" onClick={() => setCurrentTab('Soup')}>Soup</button>
             <button className="tablinks" onClick={() => setCurrentTab('Russian')}>Russian</button>
 
         </div>
@@ -109,13 +108,6 @@ const CuisinePage = () => {
   />
 
   <form className="image-form" onSubmit={handleSubmit}>
-    <input
-      type="text"
-      id="imageURL-input"
-      name="imageURL"
-      placeholder="Image URL"
-      required
-    />
     <input
       type="text"
       id="description-input"
