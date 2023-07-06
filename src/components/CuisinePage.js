@@ -16,12 +16,12 @@ const CuisinePage = () => {
   fetch(`https://pixabay.com/api/?key=36404956-dbea71482a1b61f69c95cb03c&q=${country}+food+dinner&image_type=photo&per_page=20`)
         .then((response)=> response.json())
         .then((data) => {
-            if (data.cuisines) {
-                const formattedImages = data.cuisines.map((cuisine) => ({
-                  id: cuisine.id,
-                  imageUrl: cuisine.imageURL,
-                  title: cuisine.title,
-                  description: cuisine.description,
+            if (data.hits) {
+                const formattedImages = data.hits.map((hit) => ({
+                  id: hit.id,
+                  imageUrl: hit.imageURL,
+                  title: hit.tags,
+                  description: hit.description,
                 }));
                 setImagesData(formattedImages);
                 setFilteredImages(formattedImages);
