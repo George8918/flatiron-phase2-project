@@ -60,7 +60,7 @@ const CuisinePage = () => {
       description: formData.get('description'),
     };
 
-    fetch('https://json-server-project-phase2.onrender.com/cuisines', {
+    fetch('http://localhost:3100/cuisines', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
