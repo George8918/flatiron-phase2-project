@@ -8,7 +8,7 @@ front-end
 
 ###  
      1. Clone the repository to your local machine.
-     2. Clone the repository to your local machine.
+     2. install the packages and environments to your local machine.
      3. Open your browser and visit `http://localhost:3000` to access the application.
 
 ### `npm start`
