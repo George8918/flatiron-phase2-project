@@ -13,7 +13,7 @@ const CuisinePage = () => {
 
     const fetchImageData = (country) => {
 
-  fetch(`https://json-server-project-phase2.onrender.com/cuisines?country=${country}`)
+  fetch(`https://json-server-project-phase2.onrender.com/cuisines?country=${country}+food`)
         .then((response)=> response.json())
         .then((data) => {
             if (data.hits) {
@@ -114,10 +114,6 @@ const CuisinePage = () => {
       name="description"
       placeholder="Description"
     />
-
-    <button id="clear-btn" type="button" onClick={() => setFilteredImages(imagesData)}>
-      Clear
-    </button>
 
     <button type="submit">Add Image</button>
   </form>
